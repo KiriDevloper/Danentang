@@ -1,3 +1,87 @@
+import React from "react";
+import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+
+export default function ThongTinCaNhan() {
+  return (
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+      {/* Header */}{" "}
+      <View style={styles.header}>
+        {" "}
+        <View>
+          {" "}
+          <Text style={styles.appName}>THÔNG TIN CÁ NHÂN</Text>{" "}
+          <Text style={styles.welcome}>
+            Thông tin tài khoản sinh viên{" "}
+          </Text>{" "}
+        </View>
+        ```
+        <View style={styles.avatar}>
+          <Text style={styles.avatarText}>NT</Text>
+        </View>
+      </View>
+      {/* Thông tin tài khoản */}
+      <View style={styles.profileCard}>
+        <View style={styles.bigAvatar}>
+          <Text style={styles.bigAvatarText}>NT</Text>
+        </View>
+
+        <Text style={styles.name}>Nguyễn Ngọc Trung</Text>
+        <Text style={styles.student}>Sinh viên - CNTT K23</Text>
+      </View>
+      {/* Thông tin cá nhân */}
+      <Text style={styles.sectionTitle}>Thông tin cá nhân</Text>
+      <View style={styles.infoCard}>
+        <View style={styles.infoRow}>
+          <Text style={styles.label}>Họ và tên</Text>
+          <Text style={styles.value}>Nguyễn Ngọc Trung</Text>
+        </View>
+
+        <View style={styles.infoRow}>
+          <Text style={styles.label}>MSSV</Text>
+          <Text style={styles.value}>23103084</Text>
+        </View>
+
+        <View style={styles.infoRow}>
+          <Text style={styles.label}>Lớp</Text>
+          <Text style={styles.value}>CNTT K23</Text>
+        </View>
+
+        <View style={styles.infoRow}>
+          <Text style={styles.label}>Ngày sinh</Text>
+          <Text style={styles.value}>09/06/2005</Text>
+        </View>
+
+        <View style={styles.infoRow}>
+          <Text style={styles.label}>Khoa</Text>
+          <Text style={styles.value}>Công nghệ thông tin</Text>
+        </View>
+      </View>
+      {/* Thông tin tài khoản */}
+      <Text style={styles.sectionTitle}>Thông tin tài khoản</Text>
+      <View style={styles.infoCard}>
+        <View style={styles.infoRow}>
+          <Text style={styles.label}>Email</Text>
+          <Text style={styles.value}>trung23103084@gmail.com</Text>
+        </View>
+
+        <View style={styles.infoRow}>
+          <Text style={styles.label}>Trạng thái</Text>
+          <Text style={styles.active}>Đang hoạt động</Text>
+        </View>
+      </View>
+      {/* Chức năng */}
+      <Text style={styles.sectionTitle}>Cài đặt tài khoản</Text>
+      <View style={styles.buttonCard}>
+        <Pressable style={styles.button}>
+          <Text style={styles.buttonIcon}>✏️</Text>
+          <Text style={styles.buttonText}>Chỉnh sửa thông tin</Text>
+        </Pressable>
+
+        <Pressable style={styles.button}>
+          <Text style={styles.buttonIcon}>🔒</Text>
+          <Text style={styles.buttonText}>Đổi mật khẩu</Text>
+        </Pressable>
+        
 <Pressable style={styles.button}>
           <Text style={styles.buttonIcon}>⚙️</Text>
           <Text style={styles.buttonText}>Cài đặt</Text>
