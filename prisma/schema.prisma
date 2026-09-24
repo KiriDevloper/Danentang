@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+model User {
+  id        String     @id @default(cuid())
+  email     String     @unique
+  password  String
+  fullName  String
+  studentId String?
+  phone     String?
+  createdAt DateTime   @default(now())
+  subjects  Subject[]
+  tasks     Task[]
+  schedules Schedule[]
+}
+
+model Subject {
+  id        String     @id @default(cuid())
+  name      String
+  teacher   String?
+  credits   Int?
+  userId    String
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tasks     Task[]
+  schedules Schedule[]
+}
+
+model Task {
+  id        String   @id @default(cuid())
+  title     String
+  note      String?
+  dueDate   DateTime
+  done      Boolean  @default(false)
+  subjectId String
+  subject   Subject  @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Schedule {
+  id        String   @id @default(cuid())
+  dayOfWeek Int
+  startTime String
+  endTime   String
+  room      String?
+  subjectId String
+  subject   Subject  @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
